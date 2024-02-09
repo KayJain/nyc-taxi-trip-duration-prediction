@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  make_dataset:
+    cmd: python .\src\data\make_dataset.py .\data\raw\data.csv .\data\interim
+    deps:
+    - path: .\data\interim
+      hash: md5
+      md5: e9422c01f7599b635b7ebefaf527ce43.dir
+      size: 197004804
+      nfiles: 3
+    - path: .\data\raw\data.csv
+      hash: md5
+      md5: e59c291a4b1c640f1dab33b89daa22e1
+      size: 200589097
+    - path: .\src\data\make_dataset.py
+      hash: md5
+      md5: 2e30066ce7c9430cd61bba9e2c62115a
+      size: 1850
+    params:
+      params.yaml:
+        make_dataset.seed: 43
+        make_dataset.test_size: 0.2
