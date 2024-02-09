@@ -1,0 +1,10 @@
+stages:
+  make_dataset:
+    cmd: python .\src\data\make_dataset.py .\data\raw\data.csv .\data\interim
+    deps:
+    - .\src\data\make_dataset.py
+    - .\data\raw\data.csv
+    - .\data\interim
+    params:
+    - make_dataset.seed
+    - make_dataset.test_size
