@@ -4,7 +4,13 @@ stages:
     deps:
     - .\src\data\make_dataset.py
     - .\data\raw\data.csv
-    - .\data\interim
     params:
     - make_dataset.seed
     - make_dataset.test_size
+
+  build_features:
+    cmd: python .\src\features\build_features.py .\data\interim\train.csv .\data\interim\test.csv .\data\processed
+    deps:
+    - .\src\features\build_features.py
+    - .\data\interim\train.csv
+    - .\data\interim\test.csv

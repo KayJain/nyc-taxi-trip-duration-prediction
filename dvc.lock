@@ -3,11 +3,6 @@ stages:
   make_dataset:
     cmd: python .\src\data\make_dataset.py .\data\raw\data.csv .\data\interim
     deps:
-    - path: .\data\interim
-      hash: md5
-      md5: e9422c01f7599b635b7ebefaf527ce43.dir
-      size: 197004804
-      nfiles: 3
     - path: .\data\raw\data.csv
       hash: md5
       md5: e59c291a4b1c640f1dab33b89daa22e1
@@ -20,3 +15,19 @@ stages:
       params.yaml:
         make_dataset.seed: 43
         make_dataset.test_size: 0.2
+  build_features:
+    cmd: python .\src\features\build_features.py .\data\interim\train.csv .\data\interim\test.csv
+      .\data\processed
+    deps:
+    - path: .\data\interim\test.csv
+      hash: md5
+      md5: 4aeea412802268cf10dfbaece03eb4dd
+      size: 39401872
+    - path: .\data\interim\train.csv
+      hash: md5
+      md5: 855074e31f03a5da161716620db88ea0
+      size: 157602932
+    - path: .\src\features\build_features.py
+      hash: md5
+      md5: 4f96e681b87552f1b6af1b6d5b468876
+      size: 5512
