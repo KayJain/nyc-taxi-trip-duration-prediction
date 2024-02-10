@@ -31,3 +31,19 @@ stages:
       hash: md5
       md5: 4f96e681b87552f1b6af1b6d5b468876
       size: 5512
+  train_model:
+    cmd: python .\src\models\train_model.py .\data\processed\train.csv .\data\processed\test.csv
+      .\models
+    deps:
+    - path: .\data\processed\test.csv
+      hash: md5
+      md5: c4a01b1c4d05abe858f815bc9d5df05f
+      size: 43062083
+    - path: .\data\processed\train.csv
+      hash: md5
+      md5: 5145c7b7ae9d4cf1563bc6afa5d601ef
+      size: 172236373
+    - path: .\src\models\train_model.py
+      hash: md5
+      md5: e2d8e1c0605d4d93b14f9d6b6b9782c3
+      size: 4483

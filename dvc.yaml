@@ -14,3 +14,10 @@ stages:
     - .\src\features\build_features.py
     - .\data\interim\train.csv
     - .\data\interim\test.csv
+
+  train_model:
+    cmd: python .\src\models\train_model.py .\data\processed\train.csv .\data\processed\test.csv .\models
+    deps:
+    - .\src\models\train_model.py
+    - .\data\processed\train.csv
+    - .\data\processed\test.csv
