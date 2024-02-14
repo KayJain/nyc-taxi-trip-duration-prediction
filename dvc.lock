@@ -9,8 +9,8 @@ stages:
       size: 200589097
     - path: .\src\data\make_dataset.py
       hash: md5
-      md5: 2e30066ce7c9430cd61bba9e2c62115a
-      size: 1850
+      md5: fbaf218a0eb130348188028b0c928286
+      size: 2437
     params:
       params.yaml:
         make_dataset.seed: 43
@@ -21,12 +21,12 @@ stages:
     deps:
     - path: .\data\interim\test.csv
       hash: md5
-      md5: 4aeea412802268cf10dfbaece03eb4dd
-      size: 39401872
+      md5: b9dc249520d628a968388fbc8c9eb60c
+      size: 38872868
     - path: .\data\interim\train.csv
       hash: md5
-      md5: 855074e31f03a5da161716620db88ea0
-      size: 157602932
+      md5: f0710d23a7d6cb5d84a78d19a67370a6
+      size: 155493368
     - path: .\src\features\build_features.py
       hash: md5
       md5: 4f96e681b87552f1b6af1b6d5b468876
@@ -37,12 +37,12 @@ stages:
     deps:
     - path: .\data\processed\test.csv
       hash: md5
-      md5: c4a01b1c4d05abe858f815bc9d5df05f
-      size: 43062083
+      md5: 68c7e0e7bbb8599df635340e3874ee06
+      size: 42484833
     - path: .\data\processed\train.csv
       hash: md5
-      md5: 5145c7b7ae9d4cf1563bc6afa5d601ef
-      size: 172236373
+      md5: 889d986e4cb1b60012666659365ecf23
+      size: 169947577
     - path: .\src\models\train_model.py
       hash: md5
       md5: e2d8e1c0605d4d93b14f9d6b6b9782c3

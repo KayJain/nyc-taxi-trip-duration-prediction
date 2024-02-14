@@ -17,6 +17,14 @@ class DataIngestion():
     def read_data(self):
         self.df = pd.read_csv(self.input_data_path)
 
+    def outlier_removal(self):
+        #city_long_border = (-74.03, -73.75)
+        #city_lat_border = (40.63, 40.85)
+        self.df = self.df[(self.df['pickup_longitude'] < -73.75) & (self.df['pickup_longitude'] > -74.03)]
+        self.df = self.df[(self.df['pickup_latitude'] < 40.85) & (self.df['pickup_latitude'] > 40.63)] 
+        self.df = self.df[(self.df['dropoff_longitude'] < -73.75) & (self.df['dropoff_longitude'] > -74.03)] 
+        self.df = self.df[(self.df['dropoff_latitude'] < 40.85) & (self.df['dropoff_latitude'] > 40.63)]  
+
     def split_data(self):
         self.train, self.test = train_test_split(self.df, test_size=self.test_size, random_state=self.seed)
 
@@ -28,6 +36,7 @@ class DataIngestion():
 
     def preprocess(self):
         self.read_data()
+        self.outlier_removal()
         self.split_data()
         self.save_data()
 
